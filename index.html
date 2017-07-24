@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>First</title>
+    <!--<link rel="stylesheet" href="css/main.css">-->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!--<script type="text/javascript" src="js/main.js"></script>-->
+	<!-- Подключение библиотеки jQuery -->
+	<script src="js/jquery-3.2.1.js"></script>
+	<!-- Подключение jQuery плагина Masked Input -->
+	<script src="js/jquery.maskedinput.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+	<script>
+		function postTo() {
+			alert("Данные верны и отправлены");
+		}
+	</script>
+    <form>
+    <p>Введите дату</p>
+    <p><input type="date" name="data" required></p>
+
+    <p>Текст</p>
+    <p><textarea name="comment" cols="45" rows="4" required></textarea></p>	
+
+    <p>Введите номер телефона</p>
+    <p>
+	    <!--HTML элемент, который будет иметь маску ввода телефонного номера  -->
+		<input  id="phone" type="text">	
+		<script>
+		//Код jQuery, установливающий маску для ввода телефона элементу input
+		$(function(){
+		  $("#phone").mask("8(999) 999-9999");
+		});
+		</script>
+	</p>
+	<p>Введите почту</p>
+	<p><input type="email" name="login" placeholder="mail@example.com" list="mailList" required></p>
+	<p>Введите число</p>
+	<p><input type="number" name="num" pattern="^[ 0-9]+$" required></p>
+	<p>Загрузите файл</p>
+	<p><input type="file" name="f" required></p>
+    </form>
+    <p><input type="button" value="Отправить" onclick="postTo()"></p>
+</body>
+</html>
