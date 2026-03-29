@@ -1,51 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>First</title>
-    <!--<link rel="stylesheet" href="css/main.css">-->
+    <meta name="description" content="Демо-форма: дата, текст, телефон, почта, число, файл">
+    <title>Демо-форма</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <!--<script type="text/javascript" src="js/main.js"></script>-->
-	<!-- Подключение библиотеки jQuery -->
-	<script src="js/jquery-3.2.1.js"></script>
-	<!-- Подключение jQuery плагина Masked Input -->
-	<script src="js/jquery.maskedinput.min.js"></script>
-	<!-- Include all compiled plugins (below), or include individual files as needed -->
+    <div class="container" style="max-width: 640px; padding-top: 2rem; padding-bottom: 2rem;">
+        <h1 class="h3">Тестовая форма</h1>
+        <p class="text-muted">Проверка полей ввода и маски телефона (jQuery Masked Input).</p>
+
+        <form id="demoForm" method="get" action="#">
+            <div class="form-group">
+                <label for="field-date">Дата</label>
+                <input class="form-control" id="field-date" type="date" name="date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="field-comment">Текст</label>
+                <textarea class="form-control" id="field-comment" name="comment" cols="45" rows="4" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Номер телефона</label>
+                <input class="form-control" id="phone" name="phone" type="text" inputmode="numeric" autocomplete="tel" placeholder="8(___) ___-____" required>
+            </div>
+
+            <div class="form-group">
+                <label for="field-email">Электронная почта</label>
+                <input class="form-control" id="field-email" type="email" name="login" placeholder="mail@example.com" list="mailList" required>
+                <datalist id="mailList">
+                    <option value="mail@gmail.com">
+                    <option value="mail@yandex.ru">
+                    <option value="mail@mail.ru">
+                </datalist>
+            </div>
+
+            <div class="form-group">
+                <label for="field-num">Число (неотрицательное целое)</label>
+                <input class="form-control" id="field-num" type="number" name="num" min="0" step="1" required>
+            </div>
+
+            <div class="form-group">
+                <label for="field-file">Файл</label>
+                <input id="field-file" type="file" name="f" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Отправить</button>
+        </form>
+    </div>
+
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/jquery.maskedinput.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-
-	<script>
-		function postTo() {
-			alert("Данные верны и отправлены");
-		}
-	</script>
-    <form>
-    <p>Введите дату</p>
-    <p><input type="date" name="data" required></p>
-
-    <p>Текст</p>
-    <p><textarea name="comment" cols="45" rows="4" required></textarea></p>	
-
-    <p>Введите номер телефона</p>
-    <p>
-	    <!--HTML элемент, который будет иметь маску ввода телефонного номера  -->
-		<input  id="phone" type="text">	
-		<script>
-		//Код jQuery, установливающий маску для ввода телефона элементу input
-		$(function(){
-		  $("#phone").mask("8(999) 999-9999");
-		});
-		</script>
-	</p>
-	<p>Введите почту</p>
-	<p><input type="email" name="login" placeholder="mail@example.com" list="mailList" required></p>
-	<p>Введите число</p>
-	<p><input type="number" name="num" pattern="^[ 0-9]+$" required></p>
-	<p>Загрузите файл</p>
-	<p><input type="file" name="f" required></p>
-    </form>
-    <p><input type="button" value="Отправить" onclick="postTo()"></p>
+    <script src="js/main.js"></script>
 </body>
 </html>
