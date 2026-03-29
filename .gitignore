@@ -1,23 +1,19 @@
+# ОС
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Редакторы и IDE
 .idea/
-*.~
-*.tmp
-*.class
-*.cache
-*.log
-.cache/
-.history/
-project/boot/
-project/plugins/project/
-target/
-*.metadata
-bin/
-tmp/
-.settings/
-*.loadpath
-*.bak
+.vscode/
 *.swp
-*.target
-*.buildpath
-*.cache-main
-*.iml
-out/
+*.bak
+*~
+
+# Временные и логи
+*.log
+*.tmp
+.cache/
+
+# Если позже появится Node/npm
+node_modules/
